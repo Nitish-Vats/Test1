@@ -1,0 +1,75 @@
+@*@model Test1.Models.UserModel*@
+@using Test1.Models
+
+@{
+  ViewBag.Title = "Index";
+}
+<br/>
+<div>
+  <div class="row">
+    <div class="col-md-3">
+      @using (Html.BeginForm("Index", "User", FormMethod.Post))
+      {
+
+
+
+        @Html.TextBox("Searching")
+
+        <input type="submit" value="Search" />
+      }
+
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-3">
+
+      @using (Html.BeginForm("Index", "User", FormMethod.Post))
+      {
+        <table>
+          <tr>
+            <th>
+              @Html.DropDownList("gender", new List<SelectListItem>
+                                     {
+                                             new SelectListItem { Text = "Male", Value = "Male"},
+                                             new SelectListItem { Text = "Female", Value = "Female"},
+                                     }, "Select Gender", new { @class = "form-control" })
+              @*@Html.DropDownList("gender", new SelectList(Enum.GetValues(typeof(Gender))), "Select Gender", new { @class = "form-control" })*@
+            </th>
+            <th>
+              <button class="btn btn-primary" type="submit" style="align-self:flex-end">Search</button>
+            </th>
+          </tr>
+        </table>
+      }
+
+    </div>
+  </div>
+</div>
+
+
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-primary">
+        @using (Html.BeginForm("Index", "User", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+          @Html.Partial("Partial/userList")
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+

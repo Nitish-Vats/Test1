@@ -1,0 +1,63 @@
+@model IEnumerable<Test1.Models.UserModel>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
+          <th>
+            Name
+          </th>
+          <th>
+            Age
+          </th>
+          <th>
+            Gender
+          </th>
+        </tr>
+      </thead>
+      @foreach (var item in Model)
+      {
+        <tbody>
+          <tr>
+            <td>
+              @item.ID
+            </td>
+            <td>
+              @item.Name
+            </td>
+            <td>
+              @item.Age
+            </td>
+            <td>
+              @item.Gender
+            </td>
+
+          </tr>
+        </tbody>
+      }
+      <tfoot>
+        <tr>
+          <th>
+            ID
+          </th>
+          <th>
+            Name
+          </th>
+          <th>
+            Age
+          </th>
+          <th>
+            Gender
+          </th>
+
+        </tr>
+      </tfoot>
+
+    </table>
+  </div>
+
+</div>
